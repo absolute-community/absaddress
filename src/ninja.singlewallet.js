@@ -15,23 +15,23 @@
 			document.getElementById("singlearea").style.display = "none";
 		},
 
-		// generate bitcoin address and private key and update information in the HTML
+		// generate absolute address and private key and update information in the HTML
 		generateNewAddressAndKey: function () {
 			try {
-				var key = new Bitcoin.ECKey(false);
+				var key = new Absolute.ECKey(false);
 				key.setCompressed(true);
-				var bitcoinAddress = key.getBitcoinAddress();
-				var privateKeyWif = key.getBitcoinWalletImportFormat();
-				document.getElementById("btcaddress").innerHTML = bitcoinAddress;
+				var absoluteAddress = key.getAbsoluteAddress();
+				var privateKeyWif = key.getAbsoluteWalletImportFormat();
+				document.getElementById("btcaddress").innerHTML = absoluteAddress;
 				document.getElementById("btcprivwif").innerHTML = privateKeyWif;
 				var keyValuePair = {
-					"qrcode_public": bitcoinAddress,
+					"qrcode_public": absoluteAddress,
 					"qrcode_private": privateKeyWif
 				};
 				qrCode.showQrCode(keyValuePair, 4);
 			}
 			catch (e) {
-				// browser does not have sufficient JavaScript support to generate a bitcoin address
+				// browser does not have sufficient JavaScript support to generate a absolute address
 				alert(e);
 				document.getElementById("btcaddress").innerHTML = "error";
 				document.getElementById("btcprivwif").innerHTML = "error";

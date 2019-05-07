@@ -1060,7 +1060,7 @@
 
 
 	// Copyright Stephan Thomas (start) --- //
-	// https://raw.github.com/bitcoinjs/bitcoinjs-lib/07f9d55ccb6abd962efb6befdd37671f85ea4ff9/src/util.js
+	// https://raw.github.com/absolutejs/absolutejs-lib/07f9d55ccb6abd962efb6befdd37671f85ea4ff9/src/util.js
 	// BigInteger monkey patching
 	BigInteger.valueOf = nbv;
 

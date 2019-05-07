@@ -7,15 +7,15 @@ module.exports = function (grunt) {
 		combine: {
 			single: {
 				input: "./src/bitaddress-ui.html",
-				output: "./bitaddress.org.html",
+				output: "./address.absolutecoin.net.html",
 				tokens: [
 					{ token: "//biginteger.js", file: "./src/biginteger.js" },
-					{ token: "//bitcoinjs-lib.js", file: "./src/bitcoinjs-lib.js" },
-					{ token: "//bitcoinjs-lib.address.js", file: "./src/bitcoinjs-lib.address.js" },
-					{ token: "//bitcoinjs-lib.base58.js", file: "./src/bitcoinjs-lib.base58.js" },
-					{ token: "//bitcoinjs-lib.ecdsa.js", file: "./src/bitcoinjs-lib.ecdsa.js" },
-					{ token: "//bitcoinjs-lib.eckey.js", file: "./src/bitcoinjs-lib.eckey.js" },
-					{ token: "//bitcoinjs-lib.util.js", file: "./src/bitcoinjs-lib.util.js" },
+					{ token: "//absolutejs-lib.js", file: "./src/absolutejs-lib.js" },
+					{ token: "//absolutejs-lib.address.js", file: "./src/absolutejs-lib.address.js" },
+					{ token: "//absolutejs-lib.base58.js", file: "./src/absolutejs-lib.base58.js" },
+					{ token: "//absolutejs-lib.ecdsa.js", file: "./src/absolutejs-lib.ecdsa.js" },
+					{ token: "//absolutejs-lib.eckey.js", file: "./src/absolutejs-lib.eckey.js" },
+					{ token: "//absolutejs-lib.util.js", file: "./src/absolutejs-lib.util.js" },
 					{ token: "//cryptojs.js", file: "./src/cryptojs.js" },
 					{ token: "//cryptojs.sha256.js", file: "./src/cryptojs.sha256.js" },
 					{ token: "//cryptojs.pbkdf2.js", file: "./src/cryptojs.pbkdf2.js" },
@@ -66,7 +66,7 @@ module.exports = function (grunt) {
 					eol: 'lf'
 				},
 				files: {                // Files to process
-					'./bitaddress.org.html': ['./bitaddress.org.html']
+					'./address.absolutecoin.net.html': ['./address.absolutecoin.net.html']
 				}
 			}
 		}

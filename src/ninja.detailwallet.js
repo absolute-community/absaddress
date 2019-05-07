@@ -33,7 +33,7 @@
 		},
 
 		checkAndShowMini: function (key) {
-			if (Bitcoin.ECKey.isMiniFormat(key)) {
+			if (Absolute.ECKey.isMiniFormat(key)) {
 				// show Private Key Mini Format
 				document.getElementById("detailprivmini").innerHTML = key;
 				document.getElementById("detailmini").style.display = "block";
@@ -41,7 +41,7 @@
 		},
 
 		checkAndShowBase6: function (key) {
-			if (Bitcoin.ECKey.isBase6Format(key)) {
+			if (Absolute.ECKey.isBase6Format(key)) {
 				// show Private Key Base6 Format
 				document.getElementById("detailprivb6").innerHTML = key;
 				document.getElementById("detailb6").style.display = "block";
@@ -49,7 +49,7 @@
 		},
 
 		keyToECKeyWithBrain: function (key) {
-			var btcKey = new Bitcoin.ECKey(key);
+			var btcKey = new Absolute.ECKey(key);
 			if (btcKey.error != null) {
 				alert(translator.get("detailalertnotvalidprivatekey") + "\n" + btcKey.error);
 			}
@@ -60,7 +60,7 @@
 					var usePassphrase = confirm(translator.get("detailconfirmsha256"));
 					if (usePassphrase) {
 						var bytes = Crypto.SHA256(key, { asBytes: true });
-						btcKey = new Bitcoin.ECKey(bytes);
+						btcKey = new Absolute.ECKey(bytes);
 					}
 				}
 				else {
@@ -98,7 +98,7 @@
 					alert(btcKeyOrError.message);
 					detail.clear();
 				} else {
-					detail.populateKeyDetails(new Bitcoin.ECKey(btcKeyOrError));
+					detail.populateKeyDetails(new Absolute.ECKey(btcKeyOrError));
 				}
 			});
 		},
@@ -127,7 +127,7 @@
 					return;
 				}
 				document.getElementById("busyblock").className = "busy";
-				privateKey.BIP38PrivateKeyToEncryptedKeyAsync(btcKey.getBitcoinWalletImportFormat(), passphrase, btcKey.compressed, function (encryptedKey) {
+				privateKey.BIP38PrivateKeyToEncryptedKeyAsync(btcKey.getAbsoluteWalletImportFormat(), passphrase, btcKey.compressed, function (encryptedKey) {
 					qrCode.showQrCode({
 						"detailqrcodeprivatebip38": encryptedKey
 					}, 4);
@@ -169,24 +169,24 @@
 				btcKey.setCompressed(false);
 				document.getElementById("detailprivhex").innerHTML = btcKey.toString().toUpperCase();
 				document.getElementById("detailprivb64").innerHTML = btcKey.toString("base64");
-				var bitcoinAddress = btcKey.getBitcoinAddress();
-				var wif = btcKey.getBitcoinWalletImportFormat();
+				var absoluteAddress = btcKey.getAbsoluteAddress();
+				var wif = btcKey.getAbsoluteWalletImportFormat();
 				document.getElementById("detailpubkey").innerHTML = btcKey.getPubKeyHex();
-				document.getElementById("detailaddress").innerHTML = bitcoinAddress;
+				document.getElementById("detailaddress").innerHTML = absoluteAddress;
 				document.getElementById("detailprivwif").innerHTML = wif;
 				btcKey.setCompressed(true);
-				var bitcoinAddressComp = btcKey.getBitcoinAddress();
-				var wifComp = btcKey.getBitcoinWalletImportFormat();			
+				var absoluteAddressComp = btcKey.getAbsoluteAddress();
+				var wifComp = btcKey.getAbsoluteWalletImportFormat();			
 				document.getElementById("detailpubkeycomp").innerHTML = btcKey.getPubKeyHex();
-				document.getElementById("detailaddresscomp").innerHTML = bitcoinAddressComp;
+				document.getElementById("detailaddresscomp").innerHTML = absoluteAddressComp;
 				document.getElementById("detailprivwifcomp").innerHTML = wifComp;
 				btcKey.setCompressed(originalCompression); // to satisfy the key pool
-				var pool1 = new Bitcoin.ECKey(wif); // to satisfy the key pool
-				var pool2 = new Bitcoin.ECKey(wifComp); // to satisfy the key pool
+				var pool1 = new Absolute.ECKey(wif); // to satisfy the key pool
+				var pool2 = new Absolute.ECKey(wifComp); // to satisfy the key pool
 
 				qrCode.showQrCode({
-					"detailqrcodepublic": bitcoinAddress,
-					"detailqrcodepubliccomp": bitcoinAddressComp,
+					"detailqrcodepublic": absoluteAddress,
+					"detailqrcodepubliccomp": absoluteAddressComp,
 					"detailqrcodeprivate": wif,
 					"detailqrcodeprivatecomp": wifComp
 				}, 4);

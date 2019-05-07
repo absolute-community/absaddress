@@ -1,7 +1,7 @@
 # absaddress.
-JavaScript Client-Side Bitcoin Wallet Generator
+JavaScript Client-Side Absolute Wallet Generator
 
-Now Bitcoin addresses and their corresponding private key can be conveniently 
+Now Absolute addresses and their corresponding private key can be conveniently 
 generated in a web browser.
 
 The absaddress project provides an all-in-one HTML document with embedded
@@ -48,4 +48,4 @@ window.SecureRandom	| BSD License
 window.EllipticCurve	|	BSD License
 window.BigInteger |	BSD License
 window.QRCode | MIT License
-window.Bitcoin | MIT License
+window.Absolute | MIT License
