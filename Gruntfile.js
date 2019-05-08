@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 		combine: {
 			single: {
 				input: "./src/bitaddress-ui.html",
-				output: "./address.absolutecoin.net.html",
+				output: "./index.html",
 				tokens: [
 					{ token: "//biginteger.js", file: "./src/biginteger.js" },
 					{ token: "//absolutejs-lib.js", file: "./src/absolutejs-lib.js" },
@@ -66,7 +66,7 @@ module.exports = function (grunt) {
 					eol: 'lf'
 				},
 				files: {                // Files to process
-					'./address.absolutecoin.net.html': ['./address.absolutecoin.net.html']
+					'./index.html': ['./index.html']
 				}
 			}
 		}
