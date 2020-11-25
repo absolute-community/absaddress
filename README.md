@@ -1,4 +1,6 @@
-# absaddress.
+![alt text](https://github.com/absolute-community/absaddress/blob/master/img/Absolute-Text-With-Logo-Black-40.png?raw=true)
+
+# Absolute Paper Wallet.
 JavaScript Client-Side Absolute Wallet Generator
 
 Now Absolute addresses and their corresponding private key can be conveniently 
